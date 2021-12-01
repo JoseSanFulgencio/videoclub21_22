@@ -17,7 +17,7 @@ use App\Http\Controllers\CatalogController;
 
 Route::get('/', [HomeController::class, 'getHome']);
 
-Route::group(['prefix' => 'catalog'], function () {
+Route::group(['prefix' => 'catalog', 'middleware' => 'auth'], function () {
 
     Route::get('/', [CatalogController::class, 'getIndex']);
 
@@ -37,6 +37,6 @@ Route::get('/logout', function () {
     return ('Logout usuario');
 });
 
-Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    require __DIR__.'/auth.php';
