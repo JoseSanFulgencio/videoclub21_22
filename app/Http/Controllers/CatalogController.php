@@ -57,6 +57,19 @@ class CatalogController extends Controller
         $pelicula->poster = $request->input('poster');
         $pelicula->synopsis = $request->input('synopsis');
         $pelicula->save();
-        return redirect(url('/catalog/show', array('id' => $pelicula->id)));
+        return view('catalog.show', array('pelicula' => Movie::find($id)));
+    }
+
+    public function changeRented ($id)
+    {
+        $pelicula = Movie::findOrFail($id);
+        if ($pelicula->rented == true) {
+            $pelicula->rented = false;
+        }else{
+            $pelicula->rented = true;
+        }
+        $pelicula->save();
+
+        return view('catalog.show', array('pelicula' => Movie::find($id)));
     }
 }
