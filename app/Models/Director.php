@@ -11,8 +11,16 @@ class Director extends Model
 
     protected $table = 'directores';
 
-    public function movies()
-    {
-        return $this->hasMany(Movie::class);
+    protected $fillable = ['nombre', 'apellidos'];
+
+    public static function existsDirector($nombre, $apellidos) {
+        return self::where([
+            ['nombre', $nombre],
+            ['apellidos', $apellidos]
+        ])->first();
+    }
+
+    public function movies(){
+        return $this->hasMany(Movie::class, 'director');
     }
 }
