@@ -48,8 +48,8 @@ class DatabaseSeeder extends Seeder
 
     private static $arrayUsuarios = array(
         array(
-            'name' => "Jose Arjona Ortiz",
-            'email' => "1837071@alu.murciaeduca.es",
+            'name' => "Jose",
+            'email' => "8686470@alu.murciaeduca.es",
             'password' => 'alumno',
             'administrador' => true
         ),
@@ -60,7 +60,7 @@ class DatabaseSeeder extends Seeder
             'proveedor' => true
         ),
         array(
-            'name' => "Antonio Martinez",
+            'name' => "Juan",
             'email' => "sinPermisos@peliculas.com",
             'password' => 'sinpermisos'
         )
